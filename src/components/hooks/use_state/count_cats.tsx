@@ -1,16 +1,22 @@
-export function CountCats() {
+import { useState } from "react";
 
-  const cats = ["🐈"].length;
+export function CountCats() {
+  const [cats, setCats] = useState(0);
+  const catEmoji: string[] = ["🐈"];
+
+  //const cat = setCats(["🐈"].length);
+  //console.log(cat)
+  function handleClick() {
+    setCats(cats + 1);
+  }
 
   return (
     <>
-    <h2>useState</h2>
+      <h2>useState</h2>
 
-    <p>{cats}</p>
+      <p>{Array(cats).fill(catEmoji)}</p>
 
-    <button>
-      There are ... cats 🥳
-    </button>
+      <button onClick={handleClick}>{cats}</button>
     </>
   );
 }
